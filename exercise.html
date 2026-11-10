@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1110">
+  <meta name="description" content="FitForm Atlas 動作詳細教學：步驟、肌群、常見錯誤與安全提醒。">
+  <title>動作教學｜FitForm Atlas</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/common.js" defer></script>
+  <script src="./js/exercise.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="./index.html" aria-label="FitForm Atlas 首頁"><span class="brand-symbol" aria-hidden="true"><span></span><span></span><span></span></span><span class="brand-type">FITFORM<span class="brand-dot">.</span><small>ATLAS / 動作知識庫</small></span></a>
+    <nav class="primary-nav" aria-label="主要導覽"><a href="./index.html#library">動作資料庫</a><a href="./index.html#how-it-works">關於專案</a><a class="nav-cta" href="./index.html#library">探索動作 <span aria-hidden="true">↗</span></a></nav>
+  </div></header>
+  <main id="main"><div class="container">
+    <nav class="breadcrumbs" aria-label="麵包屑導覽"><a href="./index.html">首頁</a><span aria-hidden="true">/</span><a href="./index.html#library">動作知識庫</a><span aria-hidden="true">/</span><span id="breadcrumb-current">動作詳細頁</span></nav>
+    <div id="detail-loading" class="detail-message"><span class="loading-pulse"></span>正在載入動作資料…</div>
+    <div id="detail-error" class="detail-error" role="alert" hidden><span class="error-graphic">404<span>.</span></span><h1 id="detail-error-title">找不到這個動作</h1><p id="detail-error-text">可能網址有誤，或內容尚未建立。</p><a class="button button-primary" href="./index.html#library">回到動作知識庫 ↗</a></div>
+    <article id="detail-content" hidden>
+      <div class="detail-hero">
+        <div class="detail-heading"><div class="detail-kicker"><span class="pulse-dot"></span> MOVEMENT GUIDE <span id="detail-category-chip" class="detail-category">—</span></div><p class="detail-label">FORM / GUIDE</p><h1 id="detail-name"></h1><p id="detail-en" class="detail-en"></p><p id="detail-summary" class="detail-summary"></p><div id="detail-meta" class="detail-meta"></div></div>
+        <div class="detail-art"><img id="detail-image" alt="" src="./assets/illustrations/bench-press.svg"><span>ILLUSTRATION / ABSTRACT FORM</span></div>
+      </div>
+      <div class="detail-layout">
+        <div class="detail-main-col">
+          <section class="detail-section" aria-labelledby="intro-heading"><div class="detail-section-head"><span>01</span><h2 id="intro-heading">動作介紹</h2></div><p id="detail-intro" class="detail-body"></p></section>
+          <section class="detail-section" aria-labelledby="steps-heading"><div class="detail-section-head"><span>02</span><h2 id="steps-heading">執行步驟</h2></div><ol id="detail-steps" class="instruction-list"></ol></section>
+          <section class="detail-section" aria-labelledby="mistakes-heading"><div class="detail-section-head"><span>03</span><h2 id="mistakes-heading">常見錯誤</h2></div><div id="detail-mistakes" class="mistake-list"></div></section>
+          <section class="detail-section" aria-labelledby="sources-heading"><div class="detail-section-head"><span>04</span><h2 id="sources-heading">參考資料</h2></div><p class="reference-intro">動作內容為一般性整理，並提供資料來源供延伸閱讀。</p><ul id="detail-sources" class="source-list"></ul></section>
+        </div>
+        <aside class="detail-sidebar" aria-label="動作重點資訊"><div class="sidebar-panel"><p class="sidebar-overline">AT A GLANCE</p><h2>動作資訊</h2><div class="sidebar-info"><h3>主要訓練肌群</h3><div id="detail-primary" class="tag-list"></div></div><div class="sidebar-info"><h3>輔助參與肌群</h3><div id="detail-secondary" class="tag-list"></div></div><div class="sidebar-info"><h3>所需器材</h3><div id="detail-equipment" class="tag-list"></div></div></div><div class="safety-panel"><div class="safety-head"><span aria-hidden="true">✳</span><h2>訓練提醒</h2></div><ul id="detail-safety"></ul><p>如有疼痛、受傷或健康疑慮，請向合格專業人員諮詢。</p></div></aside>
+      </div>
+      <section class="related-section" aria-labelledby="related-heading"><div class="section-overline"><span class="section-number">KEEP EXPLORING</span><span>MORE TO DISCOVER</span></div><div class="related-heading"><h2 id="related-heading">繼續探索<span class="accent">更多動作。</span></h2><a href="./index.html#library">查看全部 →</a></div><div id="related-grid" class="exercise-grid related-grid"></div></section>
+    </article>
+  </div></main>
+  <footer class="site-footer"><div class="container footer-top"><div><div class="footer-brand">FITFORM<span>.</span>ATLAS</div><p>KNOW THE MOVE. OWN THE PROGRESS.</p></div><a href="./index.html#library">探索全部動作 ↗</a></div><div class="container footer-bottom"><span>© 2026 FITFORM ATLAS · BUILT FOR LEARNING</span><span>本網站資訊不取代個人化教練或醫療指導。</span></div></footer>
+</body>
+</html>
