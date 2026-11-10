@@ -10,7 +10,7 @@
 - 新增 id：`one-arm-dumbbell-row`，既有 `back` 分類、中階；資料由 4 筆增加為 5 筆，分類仍為 4 個。
 - `lastUpdated` 維持實際修改日期 `2026-11-10`，與當日原值相同。
 - 逐筆比較：原有四筆動作內容、順序、categories 與 schemaVersion 完全相同；HTML、CSS、前端 JS、AGENTS.md、SPEC.md 均未修改。
-- 修改檔案：`data/exercises.json`、新增 `assets/illustrations/one-arm-dumbbell-row.svg`、`README.md`、`tests/browser_smoke.py`、本報告。
+- 修改檔案：`data/exercises.json`、新增 `assets/illustrations/one-arm-dumbbell-row.svg`、`README.md`、`tests/browser_smoke.py`、本報告、新增 `docs/screenshots/one-arm-dumbbell-row-live.png` 公開頁面實測截圖。
 - 教學來源已實際查閱：
   - [ACE Single-arm Row](https://www.acefitness.org/resources/everyone/exercise-library/126/single-arm-row/)：椅面支撐、步驟、呼吸與避免軀幹旋轉；難度依該頁標示為 intermediate。
   - [PureGym Single Arm Dumbbell Rows](https://www.puregym.com/exercises/back/rows/single-arm-dumbbell-row/)：肌群、支撐位置、拉向腰側與控制下放。文字重新整理，SVG 自行繪製，未複製來源圖片。
@@ -25,9 +25,31 @@
 | 本機 HTTP 根路徑與子路徑 | PASS，16/16 | Python HTTP server + urllib：首頁、帶新 id 的詳細頁、CSS、三個 JS、JSON、划船 SVG，兩種路徑均 200 且內容非空 |
 | SVG 解析與外觀 | PASS | XML 解析；Sharp 將原始 SVG 渲染為 PNG 並目視檢查，沿用 448 viewBox、墨綠底、格線、萊姆色器材與簡潔人物；不代表姿勢專業認證 |
 | 本機瀏覽器功能與 RWD | BLOCKED | 已嘗試 `python tests/browser_smoke.py`；HTTP 部分成功，Chromium 啟動失敗，未執行 DOM/互動斷言 |
-| GitHub Pages 新動作實測 | 待驗 | 提交後確認自動部署及公開頁面 |
+| GitHub Pages 新動作實測 | PASS（桌機） | 功能提交 `de97f7f0f2de3f53e38022cce2517e5371779c8f` 的 Pages 自動部署成功；以實際公開網址、真實 JSON fetch 實測，細項如下 |
 
-本機瀏覽器限制：Playwright 預設 Chromium 未安裝；既有系統 Chromium fallback 因 `socket() failed: Operation not permitted` 無法啟動。另嘗試使用可用的雲端瀏覽器連線本機 HTTP，該環境無法存取本機站點。因此不將新增搜尋、背部分類、詳細頁點擊、返回連結、鍵盤、320/390/768/1440px 排版或 console 寫為本機通過。
+### 公開網站補充驗收（2026-11-10，台灣時間約 21:07–21:10）
+
+- [功能提交](https://github.com/mantou-mantou/fitform-atlas/commit/de97f7f0f2de3f53e38022cce2517e5371779c8f)；[Pages 部署成功紀錄](https://github.com/mantou-mantou/fitform-atlas/actions/runs/42821494360)。
+- [正式動作頁](https://mantou-mantou.github.io/fitform-atlas/exercise.html?id=one-arm-dumbbell-row)；瀏覽器直接導覽，未注入 HTML、資料或模擬 fetch。
+
+| 實測項目 | 結果 |
+|---|---|
+| 首頁 | 顯示 5/5 動作、4 分類，新卡片與連結可見 |
+| 搜尋 | `單臂啞鈴划船`、`單手划船`、`one-arm dumbbell row`、`single arm row`、大寫 `ROW` 均只命中新動作 |
+| 背部分類 | 顯示 2/5：滑輪下拉、單臂啞鈴划船 |
+| 搜尋與分類交集 | 搜尋「划船」再選胸部，顯示空狀態 |
+| 鍵盤與重置 | 以 Enter 啟用「顯示全部動作」，恢復 5/5；以 Enter 啟用新動作連結可到詳細頁。僅局部鍵盤操作，非完整無障礙稽核 |
+| 新詳細頁 | 正確中英文名、背部分類、4 步驟、3 常見錯誤、4 安全提醒、肌群及器材 |
+| SVG 與外部來源 | 插畫載入完成且有 alt；2 個來源的 href 正確，均有 `_blank` 與 `noopener noreferrer` |
+| 返回知識庫 | 以麵包屑連結回 `index.html#library`，顯示 5/5 |
+| 既有四個 id 回歸 | 實際逐一開啟 bench-press、lat-pulldown、goblet-squat、shoulder-press，標題與詳細內容區正常 |
+| 未知 id | `nonexistent` 顯示「找不到這個動作」及返回連結 |
+| 目前桌機視窗 | 1363px 寬度，詳細頁 document scrollWidth=1348，無水平溢出；已保存截圖 |
+| 網站 console | 本次觀察中無來源屬於本站的 error/warn；瀏覽器擴充套件自己的 metadata 訊息另行排除，非全站持續監測 |
+
+未驗證：本機 Playwright 完整測試仍受下述限制；320/390/768/1440px 指定寬度 RWD、實體手機、Safari/Firefox、完整鍵盤流程及資料載入失敗情境本次未重跑。公開桌機驗收不取代以上項目。
+
+本機瀏覽器限制：Playwright 預設 Chromium 未安裝；既有系統 Chromium fallback 因 `socket() failed: Operation not permitted` 無法啟動。另嘗試使用可用的雲端瀏覽器連線本機 HTTP，該環境無法存取本機站點。因此不將新增搜尋、背部分類、詳細頁點擊、返回連結、鍵盤、320/390/768/1440px 排版或 console 寫為本機通過；上述公開網站實測另列，不受此本機連線限制。
 
 `tests/browser_smoke.py` 已移除固定四筆的總數假設，加入新動作中文／別名／英文搜尋、分類交集、各欄位、來源安全屬性、SVG、原有 id 與新詳細頁 RWD 斷言。這些瀏覽器斷言目前僅完成語法檢查，需在可啟動 Chromium 的環境重跑；網站本身仍無新增依賴。可獨立重跑本機 HTTP 部分：
 
