@@ -19,6 +19,8 @@ from playwright.sync_api import sync_playwright
 
 ROOT=Path(__file__).resolve().parents[1]
 DATA=json.loads((ROOT/'data/exercises.json').read_text(encoding='utf-8'))
+ROW=next(exercise for exercise in DATA['exercises'] if exercise['id']=='one-arm-dumbbell-row')
+TOTAL=len(DATA['exercises'])
 CSS=(ROOT/'css/style.css').read_text(encoding='utf-8')
 IMAGES={str(path.relative_to(ROOT)): 'data:image/svg+xml;base64,'+base64.b64encode(path.read_bytes()).decode('ascii') for path in (ROOT/'assets/illustrations').glob('*.svg')}
 
@@ -41,17 +43,18 @@ def render(page, filename, id=None, library=None):
 
 
 def check_http_assets():
-    handler=functools.partial(http.server.SimpleHTTPRequestHandler,directory=str(ROOT.parent))
-    server=http.server.ThreadingHTTPServer(('127.0.0.1',0),handler)
-    port=server.server_address[1]
-    threading.Thread(target=server.serve_forever,daemon=True).start()
-    try:
-        for name in ['index.html','exercise.html','css/style.css','js/common.js','js/app.js','js/exercise.js','data/exercises.json','assets/illustrations/goblet-squat.svg']:
-            with urlopen(f'http://127.0.0.1:{port}/fitform-atlas/{name}',timeout=8) as response:
-                assert response.status==200 and len(response.read())>0,name
-        print('PASS HTTP: 8 core files reachable under /fitform-atlas/ project subdirectory')
-    finally:
-        server.shutdown();server.server_close()
+    for directory,prefix in ((ROOT,''),(ROOT.parent,'fitform-atlas/')):
+        handler=functools.partial(http.server.SimpleHTTPRequestHandler,directory=str(directory))
+        server=http.server.ThreadingHTTPServer(('127.0.0.1',0),handler)
+        port=server.server_address[1]
+        threading.Thread(target=server.serve_forever,daemon=True).start()
+        try:
+            for name in ['index.html','exercise.html?id=one-arm-dumbbell-row','css/style.css','js/common.js','js/app.js','js/exercise.js','data/exercises.json',ROW['illustration']]:
+                with urlopen(f'http://127.0.0.1:{port}/{prefix}{name}',timeout=8) as response:
+                    assert response.status==200 and len(response.read())>0,name
+            print(f'PASS HTTP: 8 core files including row SVG reachable under /{prefix}')
+        finally:
+            server.shutdown();server.server_close()
 
 
 def main():
@@ -67,10 +70,10 @@ def main():
         page=browser.new_page(viewport={'width':1440,'height':900},device_scale_factor=1)
         page.on('pageerror',lambda error:errors.append(str(error)))
         render(page,'index.html')
-        assert page.locator('.exercise-card').count()==4
-        assert '4 / 4' in page.locator('#result-count').inner_text()
+        assert page.locator('.exercise-card').count()==TOTAL
+        assert f'{TOTAL} / {TOTAL}' in page.locator('#result-count').inner_text()
         page.screenshot(path=str(ROOT.parent/'fitform-atlas_preview_desktop.png'),full_page=True)
-        print('PASS Desktop homepage: 4 visible exercise cards')
+        print(f'PASS Desktop homepage: {TOTAL} visible exercise cards')
         page.locator('#exercise-search').fill('bench')
         assert page.locator('.exercise-card').count()==1
         assert page.locator('.exercise-card h3').inner_text()=='槓鈴臥推'
@@ -78,13 +81,49 @@ def main():
         assert page.locator('.exercise-card').count()==0
         assert page.locator('#empty-state').is_visible()
         page.locator('#reset-filters').click()
-        assert page.locator('.exercise-card').count()==4
+        assert page.locator('.exercise-card').count()==TOTAL
         print('PASS Search: english term, empty state, reset')
         page.locator('button[data-category="back"]').click()
-        assert page.locator('.exercise-card').count()==1
-        assert page.locator('.exercise-card h3').inner_text()=='滑輪下拉'
-        assert page.locator('.exercise-card a').get_attribute('href')=='./exercise.html?id=lat-pulldown'
-        print('PASS Category filter: back yields lat pulldown and correct detail link')
+        back=[exercise for exercise in DATA['exercises'] if exercise['category']=='back']
+        assert page.locator('.exercise-card').count()==len(back)
+        assert page.locator('.exercise-card h3').all_inner_texts()==[exercise['name'] for exercise in back]
+        assert page.locator('a[href="./exercise.html?id=one-arm-dumbbell-row"]').count()==1
+        print('PASS Category filter: back includes lat pulldown and one-arm dumbbell row')
+        for query in ('單臂啞鈴划船','單手划船','one-arm dumbbell row','single arm row','ROW'):
+            page.locator('#exercise-search').fill(query)
+            assert page.locator('.exercise-card').count()==1,query
+            assert page.locator('.exercise-card h3').inner_text()==ROW['name']
+        page.locator('#exercise-search').fill('划船')
+        page.locator('button[data-category="chest"]').click()
+        assert page.locator('#empty-state').is_visible()
+        page.locator('#reset-filters').click()
+        assert page.locator('.exercise-card').count()==TOTAL
+        print('PASS Row search: Chinese, aliases, English case, combined filters and reset')
+        render(page,'exercise.html',ROW['id'])
+        assert page.locator('#detail-name').inner_text()==ROW['name']
+        assert page.locator('#detail-en').inner_text()==ROW['nameEn']
+        assert page.locator('#detail-steps li').count()==len(ROW['steps'])
+        assert page.locator('#detail-mistakes .mistake-card').count()==len(ROW['mistakes'])
+        assert page.locator('#detail-safety li').count()==len(ROW['safetyTips'])
+        assert page.locator('#detail-primary .info-tag').all_inner_texts()==ROW['muscles']['primary']
+        assert page.locator('#detail-secondary .info-tag').all_inner_texts()==ROW['muscles']['secondary']
+        assert page.locator('#detail-equipment .info-tag').all_inner_texts()==ROW['equipment']
+        assert page.locator('#detail-image').get_attribute('alt')
+        page.wait_for_function('document.querySelector("#detail-image").complete && document.querySelector("#detail-image").naturalWidth>0')
+        links=page.locator('#detail-sources a')
+        assert links.count()==len(ROW['sources'])
+        for index,source in enumerate(ROW['sources']):
+            assert links.nth(index).get_attribute('href')==source['url']
+            assert links.nth(index).get_attribute('target')=='_blank'
+            assert set(links.nth(index).get_attribute('rel').split())=={'noopener','noreferrer'}
+        assert page.locator('.breadcrumbs a').nth(1).get_attribute('href')=='./index.html#library'
+        assert page.locator('#related-grid .exercise-card h3').first.inner_text()=='滑輪下拉'
+        print('PASS Row detail: all lists, SVG, safe source links, return link and related back exercise')
+        for exercise in DATA['exercises']:
+            render(page,'exercise.html',exercise['id'])
+            assert page.locator('#detail-name').inner_text()==exercise['name']
+            assert page.locator('#detail-content').is_visible()
+        print('PASS Regression: all existing and new ids render in the shared detail template')
         render(page,'exercise.html','lat-pulldown')
         assert page.locator('#detail-name').inner_text()=='滑輪下拉'
         assert page.locator('#detail-steps li').count()==3
@@ -101,13 +140,13 @@ def main():
             dims=page.evaluate('({viewport:innerWidth,scroll:document.documentElement.scrollWidth})')
             assert dims['scroll']<=dims['viewport'],f'home overflow {width}: {dims}'
             if width==390:page.screenshot(path=str(ROOT.parent/'fitform-atlas_preview_mobile_home.png'),full_page=True)
-            render(page,'exercise.html','goblet-squat')
-            assert page.locator('#detail-name').inner_text()=='高腳杯深蹲'
+            render(page,'exercise.html',ROW['id'])
+            assert page.locator('#detail-name').inner_text()==ROW['name']
             dims=page.evaluate('({viewport:innerWidth,scroll:document.documentElement.scrollWidth})')
             assert dims['scroll']<=dims['viewport'],f'detail overflow {width}: {dims}'
             if width==390:page.screenshot(path=str(ROOT.parent/'fitform-atlas_preview_mobile.png'),full_page=True)
             print(f'PASS RWD: {width}px homepage and detail no horizontal overflow')
-        # Extension simulation: data-only addition should render a fifth card.
+        # Extension simulation: data-only addition should render one more card.
         # This fixture does NOT mean a real new-chat AI task has been tested.
         import sys
         sys.path.insert(0,str(ROOT/'tests'))
@@ -128,13 +167,13 @@ def main():
                 shutil.copyfile(ROOT/exercise['illustration'], new_root/exercise['illustration'])
             assert validate(expanded,new_root)==[]
         render(page,'index.html',library=expanded)
-        assert page.locator('.exercise-card').count()==5
+        assert page.locator('.exercise-card').count()==TOTAL+1
         page.locator('#exercise-search').fill('擴充驗證用動作')
         assert page.locator('.exercise-card').count()==1
         assert page.locator('.exercise-card a').get_attribute('href')=='./exercise.html?id=extension-fixture'
         render(page,'exercise.html','extension-fixture',library=expanded)
         assert page.locator('#detail-name').inner_text()=='擴充驗證用動作'
-        print('PASS Extension simulation: 4→5 data-only fixture, validates, searches and uses shared detail template')
+        print(f'PASS Extension simulation: {TOTAL}→{TOTAL+1} data-only fixture, validates, searches and uses shared detail template')
         assert errors==[],f'Browser JS exceptions: {errors}' 
         print('PASS Browser: no uncaught JS errors')
         browser.close()

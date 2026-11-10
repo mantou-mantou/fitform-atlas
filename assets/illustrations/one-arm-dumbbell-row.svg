@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 448" role="img" aria-labelledby="title desc">
+  <title id="title">單臂啞鈴划船抽象示意</title>
+  <desc id="desc">原創簡約向量插畫：人物俯身，以一手及同側膝支撐訓練椅，另一手持啞鈴向腰側划船；非標準動作姿勢指導。</desc>
+  <defs>
+    <radialGradient id="bg" cx="64%" cy="28%" r="75%"><stop offset="0%" stop-color="#2e473b"/><stop offset="100%" stop-color="#14221d"/></radialGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#c7fa71" stroke-opacity=".06" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="448" height="448" rx="32" fill="url(#bg)"/>
+  <rect width="448" height="448" rx="32" fill="url(#grid)"/>
+  <circle cx="224" cy="224" r="147" fill="none" stroke="#c7fa71" stroke-opacity=".11" stroke-width="2"/>
+  <circle cx="224" cy="224" r="105" fill="none" stroke="#c7fa71" stroke-opacity=".07" stroke-width="2"/>
+  <path d="M96 357h270" stroke="#a0b5b0" stroke-opacity=".3" stroke-width="5" stroke-linecap="round"/>
+  <rect x="90" y="267" width="233" height="15" rx="7" fill="#c7fa71"/>
+  <path d="M116 285v68m176-68v68" stroke="#a0b5b0" stroke-width="11" stroke-linecap="round"/>
+  <path d="M276 187l10 72 37 4M277 190l42 62 20 99" fill="none" stroke="#d3e6df" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M169 180l-18 81" stroke="#a0b5b0" stroke-width="15" stroke-linecap="round"/>
+  <path d="M165 179l112 8" stroke="#e8f5e7" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="125" cy="171" r="24" fill="#d9ebe3"/>
+  <path d="M184 184l68-12-14 62" fill="none" stroke="#e8f5e7" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M215 240h47" stroke="#c7fa71" stroke-width="8" stroke-linecap="round"/>
+  <path d="M211 226v28m55-28v28" stroke="#c7fa71" stroke-width="15" stroke-linecap="round"/>
+  <path d="M302 230v-43m-9 11 9-11 9 11" fill="none" stroke="#c7fa71" stroke-opacity=".65" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M42 408h90" stroke="#c7fa71" stroke-opacity=".8" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="396" cy="408" r="6" fill="#c7fa71"/>
+</svg>

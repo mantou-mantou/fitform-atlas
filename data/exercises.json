@@ -301,6 +301,92 @@
           "url": "https://www.acefitness.org/resources/everyone/exercise-library/"
         }
       ]
+    },
+    {
+      "id": "one-arm-dumbbell-row",
+      "name": "單臂啞鈴划船",
+      "nameEn": "ONE-ARM DUMBBELL ROW",
+      "category": "back",
+      "level": "intermediate",
+      "summary": "以單手、同側膝支撐訓練椅，練習單側背部拉力與軀幹穩定。",
+      "intro": "單臂啞鈴划船是水平拉力動作，本頁採一手與同側膝放在平板訓練椅上的支撐版本。以背闊肌為主要訓練目標，上背、後三角肌與手臂也參與；過程中保持軀幹穩定，避免靠轉身甩起啞鈴。",
+      "equipment": [
+        "啞鈴",
+        "穩固平板訓練椅"
+      ],
+      "muscles": {
+        "primary": [
+          "背闊肌"
+        ],
+        "secondary": [
+          "菱形肌",
+          "斜方肌",
+          "後三角肌",
+          "肱二頭肌",
+          "軀幹穩定肌群"
+        ]
+      },
+      "steps": [
+        {
+          "title": "建立穩定支撐",
+          "description": "以右手划船為例，將左手與左膝放在穩固的平板訓練椅上，左手約在肩膀下方、左膝約在髖部下方。右腳踩穩地面，右手握住啞鈴，掌心朝向身體。"
+        },
+        {
+          "title": "設定軀幹與肩部",
+          "description": "輕收腹部，讓背部維持中立、頭頸與脊椎延伸方向一致。右臂向下伸展，肩部保持穩定，不讓啞鈴把肩膀往地面拉落，也不刻意拱腰。"
+        },
+        {
+          "title": "沿身側向後拉",
+          "description": "吐氣並彎曲右手肘，讓上臂貼近身側向後移動，將啞鈴拉向腰側。拉到仍能維持軀幹與脊椎穩定的高度即可，不必為了拉高而轉身或抬肩。"
+        },
+        {
+          "title": "控制下放並換側",
+          "description": "吸氣並緩慢伸展手臂，將啞鈴放回起始位置，全程維持支撐與肩部控制。完成預定次數後穩妥放下啞鈴，再交換左右支撐位置練習另一側。"
+        }
+      ],
+      "mistakes": [
+        {
+          "title": "扭轉軀幹或甩動借力",
+          "description": "為了把重量拉高而轉動胸口、抬起髖部或猛拉，會失去原本的穩定姿勢；先降低重量，縮小到能控制的幅度。"
+        },
+        {
+          "title": "拱腰或抬頭過度",
+          "description": "拉起時刻意挺腰、抬頭，讓脊椎位置隨動作改變；保持腹部張力，頭頸自然延伸。"
+        },
+        {
+          "title": "下放失控或肩膀向前掉落",
+          "description": "直接讓啞鈴墜下，或讓肩部被重量拉向地面；應緩慢下放，選擇能雙向控制的重量。"
+        }
+      ],
+      "safetyTips": [
+        "確認訓練椅不會滑動或傾倒，支撐手、膝與落地腳的位置都穩固後再開始。",
+        "先用輕重量熟悉動作；若必須轉身、甩動或改變背部姿勢才能拉起，應減輕負重。",
+        "出現肩、手腕或下背疼痛時停止動作；有既有傷勢或拿不準姿勢時，請合格教練或醫療專業人員協助。",
+        "插畫僅用於辨識動作，不是精密姿勢標準，也不能取代現場指導。"
+      ],
+      "keywords": [
+        "啞鈴划船",
+        "單手啞鈴划船",
+        "單手划船",
+        "單臂划船",
+        "划船",
+        "背肌",
+        "one-arm dumbbell row",
+        "single-arm row",
+        "single arm row",
+        "dumbbell row"
+      ],
+      "illustration": "assets/illustrations/one-arm-dumbbell-row.svg",
+      "sources": [
+        {
+          "title": "ACE｜Single-arm Row：椅面支撐、操作步驟與軀幹控制",
+          "url": "https://www.acefitness.org/resources/everyone/exercise-library/126/single-arm-row/"
+        },
+        {
+          "title": "PureGym｜Single Arm Dumbbell Rows：肌群、支撐設定與動作提示",
+          "url": "https://www.puregym.com/exercises/back/rows/single-arm-dumbbell-row/"
+        }
+      ]
     }
   ]
 }
