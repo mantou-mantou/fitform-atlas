@@ -1,0 +1,306 @@
+{
+  "schemaVersion": "1.0.0",
+  "lastUpdated": "2026-11-10",
+  "categories": [
+    {
+      "id": "chest",
+      "label": "胸部",
+      "description": "胸推與上肢推舉動作"
+    },
+    {
+      "id": "back",
+      "label": "背部",
+      "description": "背闊肌與上背拉力動作"
+    },
+    {
+      "id": "legs",
+      "label": "腿部",
+      "description": "下肢蹲舉與腿部力量"
+    },
+    {
+      "id": "shoulders",
+      "label": "肩部",
+      "description": "三角肌與肩部推舉動作"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "bench-press",
+      "name": "槓鈴臥推",
+      "nameEn": "BARBELL BENCH PRESS",
+      "category": "chest",
+      "level": "intermediate",
+      "summary": "經典的上肢水平推舉動作，以胸部為主要訓練目標。",
+      "intro": "槓鈴臥推是常見的胸部複合動作，需要控制槓鈴路徑、維持上背穩定，並使用適合自己的重量與安全保護。",
+      "equipment": [
+        "槓鈴",
+        "臥推椅",
+        "安全架"
+      ],
+      "muscles": {
+        "primary": [
+          "胸大肌"
+        ],
+        "secondary": [
+          "肱三頭肌",
+          "前三角肌"
+        ]
+      },
+      "steps": [
+        {
+          "title": "設定臥推位置",
+          "description": "躺在穩固的臥推椅上，雙腳平放地面，肩胛自然收緊並維持上背穩定。雙手握距以能穩定控制槓鈴為原則。"
+        },
+        {
+          "title": "控制下降",
+          "description": "在手腕與前臂穩定的情況下，緩慢彎曲手肘，讓槓鈴沿可控制的路徑下降至適合個人活動度的位置。"
+        },
+        {
+          "title": "穩定推起",
+          "description": "維持腳部與上背支撐，向上推回起始位置，避免彈震或失去控制。每次動作都保持呼吸與節奏。"
+        }
+      ],
+      "mistakes": [
+        {
+          "title": "重量超過可控制範圍",
+          "description": "為了完成次數而讓槓鈴左右傾斜、碰撞身體或失去穩定；應先降低重量。"
+        },
+        {
+          "title": "手腕與肩部失去穩定",
+          "description": "手腕過度折彎或肩部不受控地前移，可能增加不適；依個人活動度調整動作。"
+        }
+      ],
+      "safetyTips": [
+        "建議使用安全架或有經驗的保護者，尤其在接近力竭時。",
+        "如出現肩、胸或手腕疼痛，應停止該動作並尋求專業評估。",
+        "示意插畫僅用於辨識動作，不能取代現場技術指導。"
+      ],
+      "keywords": [
+        "臥推",
+        "胸推",
+        "bench",
+        "barbell",
+        "胸肌"
+      ],
+      "illustration": "assets/illustrations/bench-press.svg",
+      "sources": [
+        {
+          "title": "ACE｜槓鈴臥推動作說明",
+          "url": "https://www.acefitness.org/certifiednewsarticle/3003/what-are-the-top-3-most-effective-chest-exercises/"
+        },
+        {
+          "title": "NSCA｜阻力訓練技術與注意事項",
+          "url": "https://dxpprod.nsca.com/education/articles/kinetic-select/anaerobic-and-muscle-endurance-development/"
+        }
+      ]
+    },
+    {
+      "id": "lat-pulldown",
+      "name": "滑輪下拉",
+      "nameEn": "LAT PULLDOWN",
+      "category": "back",
+      "level": "beginner",
+      "summary": "利用滑輪器械練習垂直拉力，建立背部發力與控制能力。",
+      "intro": "滑輪下拉透過固定器械提供可調整的阻力，適合練習軀幹穩定、肩部控制與背部拉力。操作時避免過度擺盪借力。",
+      "equipment": [
+        "高位滑輪機",
+        "下拉握把"
+      ],
+      "muscles": {
+        "primary": [
+          "背闊肌"
+        ],
+        "secondary": [
+          "肱二頭肌",
+          "菱形肌"
+        ]
+      },
+      "steps": [
+        {
+          "title": "調整座椅與握距",
+          "description": "固定大腿於腿墊下方，雙腳穩定踩地；以能自然抓握及控制肩部的握距握住把手。"
+        },
+        {
+          "title": "將把手拉向上胸方向",
+          "description": "保持軀幹穩定，帶動手肘向下移動，把手沿可控制的路徑拉向上胸附近，不必刻意向後仰甩動。"
+        },
+        {
+          "title": "緩慢回到起始位置",
+          "description": "維持阻力控制，讓手臂逐步伸展回到個人舒適的活動範圍，避免配重片猛烈碰撞。"
+        }
+      ],
+      "mistakes": [
+        {
+          "title": "大幅甩動軀幹",
+          "description": "用慣性把重量往下帶，容易讓訓練變成身體擺盪；先降低阻力，練習穩定路徑。"
+        },
+        {
+          "title": "把手強拉至頸後",
+          "description": "若肩部活動度不足，刻意做頸後下拉可能造成不適；一般可先練習胸前下拉版本。"
+        }
+      ],
+      "safetyTips": [
+        "器械高度與大腿固定位置要適合自己的身形。",
+        "有肩部疼痛、麻木或刺痛時停止動作並尋求專業建議。"
+      ],
+      "keywords": [
+        "下拉",
+        "高位下拉",
+        "背肌",
+        "背闊",
+        "pulldown",
+        "lat"
+      ],
+      "illustration": "assets/illustrations/lat-pulldown.svg",
+      "sources": [
+        {
+          "title": "ACE｜Seated Lat Pulldown 詳細步驟",
+          "url": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/"
+        },
+        {
+          "title": "NSCA｜Time-Efficient Training",
+          "url": "https://www.nsca.com/education/articles/ptq/time-efficient-training/"
+        }
+      ]
+    },
+    {
+      "id": "goblet-squat",
+      "name": "高腳杯深蹲",
+      "nameEn": "GOBLET SQUAT",
+      "category": "legs",
+      "level": "intermediate",
+      "summary": "將啞鈴抱於胸前進行深蹲，練習下肢力量與身體穩定。",
+      "intro": "高腳杯深蹲利用身體前方的啞鈴或壺鈴作為負重，適合作為下肢訓練與深蹲模式的入門變化式。深度因個人活動度而異。",
+      "equipment": [
+        "啞鈴或壺鈴"
+      ],
+      "muscles": {
+        "primary": [
+          "股四頭肌",
+          "臀大肌"
+        ],
+        "secondary": [
+          "腿後側肌群",
+          "軀幹穩定肌群"
+        ]
+      },
+      "steps": [
+        {
+          "title": "穩固抱持重量",
+          "description": "以雙手將啞鈴或壺鈴穩定抱在胸前，雙腳採個人舒適站距，讓腳掌穩定接觸地面。"
+        },
+        {
+          "title": "控制髖膝彎曲",
+          "description": "保持軀幹與負重穩定，髖部和膝部協調彎曲，蹲到自己能控制而不疼痛的深度。"
+        },
+        {
+          "title": "踩穩地面站起",
+          "description": "維持腳掌支撐並伸展髖、膝關節回到站姿，避免起身時重量遠離身體。"
+        }
+      ],
+      "mistakes": [
+        {
+          "title": "為了蹲深而失去平衡",
+          "description": "腳跟離地或身體往前跌時，先縮小動作幅度並降低負重。"
+        },
+        {
+          "title": "膝蓋路徑失控",
+          "description": "膝蓋在負重過程中明顯失去控制，應調整站距、強度並保持腳掌穩固。"
+        }
+      ],
+      "safetyTips": [
+        "依自己活動度決定深度，不必強求每個人完全相同。",
+        "先用可穩定拿起與放下的輕重量練習。"
+      ],
+      "keywords": [
+        "深蹲",
+        "腿",
+        "啞鈴深蹲",
+        "goblet",
+        "squat",
+        "臀"
+      ],
+      "illustration": "assets/illustrations/goblet-squat.svg",
+      "sources": [
+        {
+          "title": "ACE｜Goblet Squat 詳細步驟",
+          "url": "https://www.acefitness.org/resources/everyone/exercise-library/362/goblet-squat/"
+        },
+        {
+          "title": "ACE Exercise Library｜腿部動作",
+          "url": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        }
+      ]
+    },
+    {
+      "id": "shoulder-press",
+      "name": "啞鈴肩推",
+      "nameEn": "DUMBBELL SHOULDER PRESS",
+      "category": "shoulders",
+      "level": "intermediate",
+      "summary": "利用啞鈴進行上舉，訓練肩部推舉及穩定控制。",
+      "intro": "啞鈴肩推是常見的垂直推舉動作，可採坐姿或站姿。應依肩關節活動度與控制能力選擇適當重量及動作範圍。",
+      "equipment": [
+        "啞鈴",
+        "穩固椅子（選用）"
+      ],
+      "muscles": {
+        "primary": [
+          "前三角肌",
+          "中三角肌"
+        ],
+        "secondary": [
+          "肱三頭肌",
+          "軀幹穩定肌群"
+        ]
+      },
+      "steps": [
+        {
+          "title": "設定起始位置",
+          "description": "坐穩或站穩，將啞鈴置於肩部附近，手腕維持中立，讓手肘處於可控制的位置。"
+        },
+        {
+          "title": "穩定向上推舉",
+          "description": "將啞鈴沿舒適的路徑向上推，避免為了推起重量而過度後仰或聳肩借力。"
+        },
+        {
+          "title": "控制下降",
+          "description": "讓啞鈴緩慢回到肩部附近，保持呼吸與軀幹穩定，依個人活動度調整幅度。"
+        }
+      ],
+      "mistakes": [
+        {
+          "title": "下背過度代償",
+          "description": "過度挺腰、身體後仰代替肩部推舉；可改成有支撐的坐姿或減少重量。"
+        },
+        {
+          "title": "啞鈴失去控制",
+          "description": "因重量過重而讓手腕折彎、動作左右不對稱；先降低重量。"
+        }
+      ],
+      "safetyTips": [
+        "若有肩部不適，應停止並請專業人員確認適當的動作變化。",
+        "起始與結束時安全拿取啞鈴，勿在肩部上方突然放手。"
+      ],
+      "keywords": [
+        "肩推",
+        "肩膀",
+        "三角肌",
+        "press",
+        "dumbbell",
+        "overhead"
+      ],
+      "illustration": "assets/illustrations/shoulder-press.svg",
+      "sources": [
+        {
+          "title": "ACE｜Dumbbell Shoulder Press 入門訓練",
+          "url": "https://www.acefitness.org/resources/pros/expert-articles/5047/strength-training-workout-for-beginners/"
+        },
+        {
+          "title": "ACE Exercise Library｜肩部動作",
+          "url": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        }
+      ]
+    }
+  ]
+}
